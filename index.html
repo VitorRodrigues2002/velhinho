@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante O Velhinho — Zona Velha, Funchal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LANGUAGE SELECTION SCREEN -->
+  <div id="lang-screen" class="screen active">
+    <div class="lang-overlay"></div>
+    <div class="lang-content">
+      <div class="restaurant-logo">
+        <span class="logo-icon">🍽️</span>
+        <h1>O Velhinho</h1>
+        <p class="tagline-lang">Zona Velha · Funchal · Madeira</p>
+      </div>
+      <h2 id="lang-title">Escolha o seu idioma</h2>
+      <div class="lang-buttons">
+        <button class="lang-btn" onclick="setLanguage('pt')"><span class="fi fi-pt"></span></button>
+        <button class="lang-btn" onclick="setLanguage('en')"><span class="fi fi-gb"></span></button>
+        <button class="lang-btn" onclick="setLanguage('es')"><span class="fi fi-es"></span></button>
+        <button class="lang-btn" onclick="setLanguage('fr')"><span class="fi fi-fr"></span></button>
+        <button class="lang-btn" onclick="setLanguage('de')"><span class="fi fi-de"></span></button>
+        <button class="lang-btn" onclick="setLanguage('it')"><span class="fi fi-it"></span></button>
+        <button class="lang-btn" onclick="setLanguage('nl')"><span class="fi fi-nl"></span></button>
+        <button class="lang-btn" onclick="setLanguage('pl')"><span class="fi fi-pl"></span></button>
+        <button class="lang-btn" onclick="setLanguage('ru')"><span class="fi fi-ru"></span></button>
+        <button class="lang-btn" onclick="setLanguage('no')"><span class="fi fi-no"></span></button>
+        <button class="lang-btn" onclick="setLanguage('da')"><span class="fi fi-dk"></span></button>
+        <button class="lang-btn" onclick="setLanguage('fi')"><span class="fi fi-fi"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU SCREEN -->
+  <div id="menu-screen" class="screen">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="header-logo">
+          <span class="logo-icon-sm">🍽️</span>
+          <div>
+            <h1 class="restaurant-name">O Velhinho</h1>
+            <p class="restaurant-sub" id="header-sub">Fine Dining</p>
+          </div>
+        </div>
+        <button class="change-lang-btn" onclick="goToLang()" id="btn-change-lang">🌐 PT</button>
+      </div>
+      <nav class="category-nav">
+        <button class="nav-btn active" data-category="entradas_frias" onclick="showCategory('entradas_frias', this)">
+          <span class="nav-dot">·</span><span id="nav-entradas_frias">Entradas Frias</span>
+        </button>
+        <button class="nav-btn" data-category="entradas_quentes" onclick="showCategory('entradas_quentes', this)">
+          <span class="nav-dot">·</span><span id="nav-entradas_quentes">Entradas Quentes</span>
+        </button>
+        <button class="nav-btn" data-category="saladas" onclick="showCategory('saladas', this)">
+          <span class="nav-dot">·</span><span id="nav-saladas">Saladas</span>
+        </button>
+        <button class="nav-btn" data-category="sopas" onclick="showCategory('sopas', this)">
+          <span class="nav-dot">·</span><span id="nav-sopas">Sopas</span>
+        </button>
+        <button class="nav-btn" data-category="omelets" onclick="showCategory('omelets', this)">
+          <span class="nav-dot">·</span><span id="nav-omelets">Omeletes</span>
+        </button>
+        <button class="nav-btn" data-category="vegetariano" onclick="showCategory('vegetariano', this)">
+          <span class="nav-dot">·</span><span id="nav-vegetariano">Vegetariano</span>
+        </button>
+        <button class="nav-btn" data-category="massas" onclick="showCategory('massas', this)">
+          <span class="nav-dot">·</span><span id="nav-massas">Massas</span>
+        </button>
+        <button class="nav-btn" data-category="risotos" onclick="showCategory('risotos', this)">
+          <span class="nav-dot">·</span><span id="nav-risotos">Risotos</span>
+        </button>
+        <button class="nav-btn" data-category="peixes" onclick="showCategory('peixes', this)">
+          <span class="nav-dot">·</span><span id="nav-peixes">Peixes</span>
+        </button>
+        <button class="nav-btn" data-category="carnes" onclick="showCategory('carnes', this)">
+          <span class="nav-dot">·</span><span id="nav-carnes">Carnes</span>
+        </button>
+        <button class="nav-btn" data-category="especial" onclick="showCategory('especial', this)">
+          <span class="nav-dot">·</span><span id="nav-especial">Menu Especial</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- MENU CONTENT -->
+    <main>
+      <div class="category-header">
+        <h2 id="category-title">🥗 Entradas</h2>
+        <p id="category-desc">Comece a sua refeição da melhor forma</p>
+      </div>
+
+      <div class="menu-grid" id="menu-grid"></div>
+    </main>
+
+    <footer>
+      <p id="footer-text">© 2026 Bella Vista — Todos os direitos reservados</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
