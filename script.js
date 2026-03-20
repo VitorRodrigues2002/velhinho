@@ -963,7 +963,6 @@ function goToLang() {
 function applyTranslations() {
   const t = translations[currentLang];
   document.getElementById('lang-title').textContent = t.langTitle;
-  document.getElementById('header-sub').textContent = t.headerSub;
   document.getElementById('btn-change-lang').innerHTML = t.btnChangeLang;
   document.getElementById('footer-text').textContent = t.footer;
   Object.keys(t.nav).forEach(key => {
@@ -976,11 +975,15 @@ function showCategory(category, btn) {
   currentCategory = category;
 
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  if (btn) {
-    btn.classList.add('active');
-  } else {
-    const target = document.querySelector(`.nav-btn[data-category="${category}"]`);
-    if (target) target.classList.add('active');
+  const activeBtn = btn || document.querySelector(`.nav-btn[data-category="${category}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    const nav = activeBtn.closest('.category-nav');
+    if (nav) {
+      const navRect = nav.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      nav.scrollLeft += btnRect.left - navRect.left - navRect.width / 2 + btnRect.width / 2;
+    }
   }
 
   const t = translations[currentLang];
@@ -1053,11 +1056,13 @@ function renderMenu(category) {
    ============================= */
 document.addEventListener('DOMContentLoaded', () => {
   /* ---- Swipe navigation ---- */
-  let touchStartX = 0;
+  let touchStartX = null;
   document.getElementById('menu-screen').addEventListener('touchstart', e => {
+    if (e.target.closest('.category-nav')) { touchStartX = null; return; }
     touchStartX = e.touches[0].clientX;
   }, { passive: true });
   document.getElementById('menu-screen').addEventListener('touchend', e => {
+    if (touchStartX === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) < 50) return;
     const idx = categoryOrder.indexOf(currentCategory);
