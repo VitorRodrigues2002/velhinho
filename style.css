@@ -502,6 +502,29 @@ main {
   font-size: 1.6rem;
 }
 
+/* ===== FLOATING CALL BUTTON ===== */
+.fab-call {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(181,69,27,0.55);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fab-call:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(181,69,27,0.7);
+}
+
 /* ===== FOOTER ===== */
 footer {
   background: var(--stone);
