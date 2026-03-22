@@ -505,24 +505,24 @@ main {
 /* ===== FLOATING CALL BUTTON ===== */
 .fab-call {
   position: fixed;
-  bottom: 28px;
-  right: 24px;
+  bottom: 32px;
+  right: 32px;
   z-index: 9999;
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
-  background: var(--terra);
+  background: var(--terra-light);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(181,69,27,0.55);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.2);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .fab-call:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(181,69,27,0.7);
+  box-shadow: 0 6px 32px rgba(0,0,0,0.6), 0 0 0 4px rgba(255,255,255,0.3);
 }
 
 /* ===== FOOTER ===== */
